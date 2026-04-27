@@ -17,6 +17,14 @@ begin
 	using TensorOperations
 	using Grassmann
 	using LaTeXStrings
+	using Latexify
+end
+
+# ╔═╡ 675e5e43-6c7e-4525-b1f3-67d2bde3d130
+# imports
+begin
+    using PlutoUI
+    TableOfContents(title="Contents", indent=true, depth=4, aside=true)
 end
 
 # ╔═╡ 25846afe-1022-4f73-a2c3-929fde6bffde
@@ -54,47 +62,122 @@ begin
 		legend = false)
 end
 
-# ╔═╡ 173acd4d-4894-48fc-bb69-48041eea3a49
-begin
-    function insight(title, content)
-        HTML("""
-        <div style="
-            border-radius: 4px;
-            overflow: hidden;
-            margin: 1rem 0;
-            border: 2px solid #E07000;
-        ">
-        <div style="
-            background-color: #E07000;
-            padding: 0.5rem 1.25rem;
-        ">
-        <p style="
-            color: white;
-            font-weight: 600;
-            font-size: 1rem;
-            margin: 0;
-        ">∇ $title</p>
-        </div>
-        <div style="
-            background-color: #FFF8F0;
-            padding: 1rem 1.25rem;
-        ">
-        <p style="color: #4A4A4A; margin: 0; line-height: 1.6;">$content</p>
-        </div>
-        </div>
-        """)
-    end
-end
+# ╔═╡ 3401142e-97ed-413a-818f-416811a133eb
+# custom_toc
+HTML("""
+<div style="
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 1rem 0;
+    border: 2px solid #2F4F4F;
+    width: 320px;
+">
+<div style="
+    background-color: #2F4F4F;
+    padding: 0.5rem 1.25rem;
+">
+<p style="
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 0;
+">☰ Contents</p>
+</div>
+<div style="
+    background-color: #E8F4F4;
+    padding: 0.75rem 1.25rem;
+">
+<p style="margin: 0.4rem 0; font-size: 0.95rem;">
+    <a href="#Introduction" style="color: #2F4F4F; text-decoration: none;">
+    1 · Physics Realization</a></p>
+	 
+<p style="margin: 0.4rem 0; font-size: 0.95rem;">
+	<a href="#Beauty" style="color: #2F4F4F; text-decoration: none;">
+	2 · Beauty in Science</a></p>
+	 
+<p style="margin: 0.4rem 0; font-size: 0.95rem;">
+    <a href="#Maxwell" style="color: #2F4F4F; text-decoration: none;">
+    3 · Maxwell's Equations</a></p>
+	 
+<p style="margin: 0.4rem 0; font-size: 0.95rem;">
+    <a href="#Action" style="color: #2F4F4F; text-decoration: none;">
+    4 · Principle of Least Action</a></p>
+	  
+<p style="margin: 0.4rem 0; font-size: 0.95rem;">
+    <a href="#Geodesics" style="color: #2F4F4F; text-decoration: none;">
+    5 · Geodesics</a></p>
+	 
+<p style="margin: 0.4rem 0; font-size: 0.95rem;">
+    <a href="#Semi" style="color: #2F4F4F; text-decoration: none;">
+    6 · Semi-Riemann in GR</a></p>
+	 	 
+<p style="margin: 0.4rem 0; font-size: 0.95rem;">
+    <a href="#Riemann" style="color: #2F4F4F; text-decoration: none;">
+    7 · Riemann Curvature Tensor</a></p>
+
+<p style="margin: 0.4rem 0; font-size: 0.95rem;">
+    <a href="#Identities" style="color: #2F4F4F; text-decoration: none;">
+    8 · Simplifying Identities</a></p>
+
+<p style="margin: 0.4rem 0; font-size: 0.95rem;">
+    <a href="#Hilbert" style="color: #2F4F4F; text-decoration: none;">
+    9 · Hilbert derivation of Field Equationsc</a></p>
+
+<p style="margin: 0.4rem 0; font-size: 0.95rem;">
+    <a href="#Cartan" style="color: #2F4F4F; text-decoration: none;">
+    10 · Cartan's Structural Equations</a></p>
+
+<p style="margin: 0.4rem 0; font-size: 0.95rem;">
+    <a href="#Radius" style="color: #2F4F4F; text-decoration: none;">
+    11 · Schwarzschild radius</a></p>
+
+<p style="margin: 0.4rem 0; font-size: 0.95rem;">
+    <a href="#FLRW" style="color: #2F4F4F; text-decoration: none;">
+    12 · Friedmann-Lemaître-Robertson-Walker Metric</a></p>
+
+<p style="margin: 0.4rem 0; font-size: 0.95rem;">
+    <a href="#Friedmann" style="color: #2F4F4F; text-decoration: none;">
+    13 · Friedmann Equation</a></p>
+
+<p style="margin: 0.4rem 0 0.4rem 1.5rem; font-size: 0.875rem;">
+    <a href="#Cartan" style="color: #E07000; text-decoration: none;">
+    5.1 · Cartan Structure Equations</a></p>
+
+<p style="margin: 0.4rem 0 0.4rem 1.5rem; font-size: 0.875rem;">
+    <a href="#Bianchi" style="color: #E07000; text-decoration: none;">
+    5.2 · Bianchi Identity</a></p>
+
+<p style="margin: 0.4rem 0; font-size: 0.95rem;">
+    <a href="#Vignettes" style="color: #2F4F4F; text-decoration: none;">
+    6 · Vignettes</a></p>
+
+<p style="margin: 0.4rem 0 0.4rem 1.5rem; font-size: 0.875rem;">
+    <a href="#Chandrasekhar" style="color: #E07000; text-decoration: none;">
+    6.1 · Chandrasekhar</a></p>
+
+<p style="margin: 0.4rem 0 0.4rem 1.5rem; font-size: 0.875rem;">
+    <a href="#Eddington" style="color: #E07000; text-decoration: none;">
+    6.2 · Eddington's Ignorance</a></p>
+
+<p style="margin: 0.4rem 0; font-size: 0.95rem;">
+    <a href="#References" style="color: #2F4F4F; text-decoration: none;">
+    7 · References</a></p>
+
+<p style="margin: 0.4rem 0; font-size: 0.95rem;">
+    <a href="#Notes" style="color: #2F4F4F; text-decoration: none;">
+    8 · Notes</a></p>
+
+</div>
+</div>
+""")
 
 # ╔═╡ 9aa7dc70-c7c3-41ee-8f2a-97b6b56ddbbe
 md"""
-!!! note "Physics realization of Chapters 2, 5, 7 of Nakahara"
+!!! note "Physics Realization of Chapters 2, 5, 7 of Nakahara"
 	This notebook executes physics consistent with the geometric framework
 	of Nakahara [1], with foundational material drawn throughout from
 	MTW [3] — particularly the visualisation of differential forms in
-	§4.3 and the exterior calculus developed in §4.4–4.6 — and from
-	Needham [4], whose visual approach to forms and curvature provides
-	the geometric intuition that formal treatments often obscure.
+	§4.3 and the exterior calculus developed in §4.4–4.6, Tong's crystal clear Lectures on Theoretical Physics [9], and Needham's [4], visual approach to forms and curvature which provides the geometric intuition that formal treatments often obscure.
 
 	Élie Cartan developed the **Exterior Calculus of Differential Forms**
 	in the early 1900s, contemporaneously with Gibbs's **Vector Calculus**.
@@ -132,127 +215,7 @@ md"""
 	standard curriculum.
 """
 
-# ╔═╡ 2511d9ce-4366-4c52-85db-4a91a0fca359
-insight(
-    "Bianchi Identity → Divergence-free Einstein Tensor",
-    """
-    The second Bianchi identity for the Riemann tensor states:
-    <br><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;∇_λ R_μνρσ + ∇_ρ R_μνσλ + ∇_σ R_μνλρ = 0
-    <br><br>
-    Contracting once with g^μρ:
-    <br><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;∇_λ R_νσ - ∇_σ R_νλ + ∇^μ R_μνσλ = 0
-    <br><br>
-    Contracting again with g^νσ:
-    <br><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;∇_λ R - ∇^ν R_νλ - ∇^ν R_νλ = 0
-    <br><br>
-    Rearranging:
-    <br><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;∇_λ R = 2∇^ν R_νλ
-    <br><br>
-    This gives the contracted Bianchi identity:
-    <br><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;∇^μ (R_μν - ½ g_μν R) = ∇^μ G_μν = 0
-    <br><br>
-    This is not imposed — it is automatic from the geometry. It guarantees
-    local energy-momentum conservation ∇^μ T_μν = 0 without any additional
-    assumptions, since the Einstein equations G_μν = 8πG T_μν then require it.
-    <br><br>
-    <em>See MTW [3, p. 221] and Wald [6, p. 74].</em>
-    """
-)
-
-# ╔═╡ fe05c298-1cd9-4818-a676-5cfdf489bdd8
-insight(
-    "Semi-Riemannian Geometry: its meaning in GR",
-    """
-    <b>The essential distinction from Riemannian geometry is the signature of the metric.</b>
-    <br><br>
-    In Riemannian geometry the metric g is positive definite:
-    <br><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;g(v,v) > 0 &nbsp; for all v ≠ 0
-    <br><br>
-    All eigenvalues of g(μ,ν) are positive. Distances are always real and positive.
-    This is the geometry of ordinary curved spaces — spheres, tori, and so on.
-    <br><br>
-    In semi-Riemannian (pseudo-Riemannian) geometry the metric is indefinite:
-    <br><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;g(v,v) ∈ ℝ &nbsp; can be negative, zero, or positive
-    <br><br>
-    <b>Lorentzian geometry</b> is the specific semi-Riemannian case of spacetime,
-    with signature (-,+,+,+). The line element:
-    <br><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;ds² = -c²dt² + dx² + dy² + dz²
-    <br><br>
-    can be zero for a nonzero displacement. This has no analogue in Riemannian geometry.
-    The three causal classes of vectors:
-    <br><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;Timelike: &nbsp;&nbsp; g(v,v) < 0 &nbsp; massive particles, inside light cone<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;Null: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g(v,v) = 0 &nbsp; photons, on the light cone<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;Spacelike: &nbsp; g(v,v) > 0 &nbsp; outside the light cone
-    <br><br>
-    This causal structure — the light cone — has no counterpart in Riemannian
-    geometry and is the mathematical expression of the fact that nothing travels
-    faster than light.
-    <br><br>
-    <b>Key mathematical differences:</b>
-    <br><br>
-    Geodesics — in Riemannian geometry geodesics always minimise length. In
-    Lorentzian geometry timelike geodesics maximise proper time (the twin paradox
-    is a direct consequence), and null geodesics have zero length entirely.
-    <br><br>
-    Completeness — the Hopf-Rinow theorem guarantees that a complete Riemannian
-    manifold is geodesically complete. No such theorem exists in semi-Riemannian
-    geometry — this is precisely why the Penrose and Hawking singularity theorems
-    require separate proof and are far more subtle.
-    <br><br>
-    The norm — in Riemannian geometry ‖v‖ = √g(v,v) is always real. In Lorentzian
-    geometry one must write ‖v‖ = √|g(v,v)| and separately track the sign.
-    <br><br>
-    <em>See Wald [6, Ch. 2], MTW [3, Ch. 2], Nakahara [1, §6.1], Carroll [8, Ch. 1].</em>
-    """
-)
-
-# ╔═╡ 7bba4ccb-3fe6-458f-8103-d8d22bfbb93f
-begin
-    function intuition(title, content)
-        HTML("""
-        <div style="
-            border-radius: 4px;
-            overflow: hidden;
-            margin: 1rem 0;
-            border: 2px solid #2F4F4F;
-        ">
-        <div style="
-            background-color: #2F4F4F;
-            padding: 0.5rem 1.25rem;
-        ">
-        <p style="
-            color: white;
-            font-weight: 600;
-            font-size: 1rem;
-            margin: 0;
-        ">🫀 $title</p>
-        </div>
-        <div style="
-            background-color: #E8F4F4;
-            padding: 1rem 1.25rem;
-        ">
-        <p style="color: #4A4A4A; margin: 0; line-height: 1.6;">$content</p>
-        </div>
-        </div>
-        """)
-    end
-end
-
-# ╔═╡ ca3b8de0-76f1-4f66-b390-0f1e55fe8eb6
-intuition("Curvature is not felt locally",  "A freely falling observer 
-sees flat spacetime. It is only in the relative acceleration of neighbouring 
-geodesics that gravity reveals itself.")
-
-# ╔═╡ 9e5e3bad-bac6-48ab-a8f0-2fa9f71edb58
+# ╔═╡ 56e010e2-ef5a-4b9c-9ecd-b977a2828179
 md"""
 # Maxwell's Equations
 ## Differential form
@@ -271,7 +234,7 @@ $$\nabla \cdot \mathbf{E} = 4\pi\rho$$
 $$\nabla \times \mathbf{B} - \frac{\partial \mathbf{E}}{\partial t} = 0$$
 """
 
-# ╔═╡ 17c81a02-92f9-4ef8-9841-7a3e5a26ed92
+# ╔═╡ a33ce232-26b7-49a5-a57c-0e4ba1c76054
 md"""
 ## Covariant form
 
@@ -282,48 +245,161 @@ $$\partial_{\mu} F^{\mu\nu} = \mu_0 J^{\nu}$$
 $$\partial_{[\mu} F_{\nu\lambda]} = 0 \qquad \text{(Bianchi identity)}$$
 """
 
-# ╔═╡ 37c41578-d2f6-481d-8531-e0102f6379ac
-insight(
-    "The Quest for Beauty in Science",
-    """
-    <em>All verifiable physics is alike; each unverifiable theory fails in its own way.</em>
-    <br><br>
-    The case of general relativity provides a compelling example, since almost everyone
-    agrees it is a beautiful theory. It is worth inquiring wherein the source of this
-    beauty lies. For this purpose two criteria will be adopted.
-    <br><br>
-    The first is the criterion of Francis Bacon:
-    <br><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;<em>There is no excellent beauty that hath not some
-    strangeness in the proportion.</em>
-    <br><br>
-    Strangeness here carries the meaning of something exceptional to a degree that
-    excites wonderment and surprise.
-    <br><br>
-    The second criterion, as formulated by Heisenberg, is complementary to Bacon's:
-    <br><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;<em>Beauty is the proper conformity of the parts to one
-    another and to the whole.</em>
-    <br><br>
-    That general relativity has strangeness in the proportion, in the Baconian sense,
-    is manifest. It consists primarily in relating, in juxtaposition, two fundamental
-    concepts which had until then been considered entirely independent: the concepts
-    of space and time on the one hand, and the concepts of matter and motion on the
-    other. As Pauli wrote in 1919:
-    <br><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;<em>The geometry of spacetime is not given; it is
-    determined by matter and its motion.</em>
-    <br><br>
-    <em>— S. Chandrasekhar, Truth and Beauty, University of Chicago Press, 1987,
-    p. 70 [10].</em>
-    """
-)
+# ╔═╡ d35876b2-8056-45d2-aec1-d1836b4ae6e3
 
+# Action_Lagrangian
+md"""
+## The Action Principle and Euler-Lagrange Equations
+
+### The Action
+
+The action ``S`` is defined as the integral of the Lagrangian
+``\mathcal{L}(q^i, \dot{q}^i, t)`` over time:
+
+$$S[q^i] = \int_{t_1}^{t_2} \mathcal{L}(q^i, \dot{q}^i, t)\, dt$$
+
+### Variation of the Action
+
+We demand that the action be stationary under variations
+``\delta q^i`` that vanish at the endpoints:
+
+$$\delta q^i(t_1) = \delta q^i(t_2) = 0$$
+
+Taking the variation:
+
+$$\delta S = \int_{t_1}^{t_2} \delta \mathcal{L}(q^i, \dot{q}^i, t)\, dt$$
+
+Expanding ``\delta \mathcal{L}`` using the chain rule:
+
+$$\delta S = \int_{t_1}^{t_2} \left(
+\frac{\partial \mathcal{L}}{\partial q^i}\delta q^i
++ \frac{\partial \mathcal{L}}{\partial \dot{q}^i}\delta \dot{q}^i
+\right) dt$$
+
+### Integration by Parts
+
+The second term contains ``\delta\dot{q}^i = \frac{d}{dt}\delta q^i``.
+Integrate by parts:
+
+$$\int_{t_1}^{t_2}
+\frac{\partial \mathcal{L}}{\partial \dot{q}^i}\delta\dot{q}^i\, dt
+= \left[\frac{\partial \mathcal{L}}{\partial \dot{q}^i}
+\delta q^i\right]_{t_1}^{t_2}
+- \int_{t_1}^{t_2}
+\frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{q}^i}\right)
+\delta q^i\, dt$$
+
+The boundary term vanishes by the endpoint conditions
+``\delta q^i(t_1) = \delta q^i(t_2) = 0``:
+
+$$\left[\frac{\partial \mathcal{L}}{\partial \dot{q}^i}
+\delta q^i\right]_{t_1}^{t_2} = 0$$
+
+### Collecting Terms
+
+Substituting back:
+
+$$\delta S = \int_{t_1}^{t_2} \left(
+\frac{\partial \mathcal{L}}{\partial q^i}
+- \frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q}^i}
+\right) \delta q^i\, dt = 0$$
+
+### The Euler-Lagrange Equations
+
+Since ``\delta q^i`` is arbitrary, the integrand must vanish
+identically — the **fundamental lemma of the calculus of variations**:
+
+$$\boxed{\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q}^i}
+- \frac{\partial \mathcal{L}}{\partial q^i} = 0}$$
+
+for each ``i = 1, \ldots, n``. These are the **Euler-Lagrange equations**
+— the equations of motion that follow from demanding ``\delta S = 0``.
+"""
+
+# ╔═╡ bc3a47f5-a93a-4f63-b46e-beaaefb245db
+# Geodesic Equation
+md"""
+## The Geodesic Equation
+"""
+
+# ╔═╡ 4170c090-3f0c-4c83-aa89-3fef854a9283
+# Action_GR
+md"""
+### The Einstein-Hilbert Action
+
+In general relativity the action is the
+**Einstein-Hilbert action**:
+
+$$S_{EH} = \frac{1}{16\pi G}\int (R - 2\Lambda)\sqrt{-g}\, d^4x
++ \int \mathcal{L}_{\text{matter}}\sqrt{-g}\, d^4x$$
+
+where ``R`` is the Ricci scalar, ``g = \det(g_{\mu\nu})``,
+and ``\Lambda`` is the cosmological constant.
+
+Varying with respect to the metric ``g^{\mu\nu}``
+and integrating by parts yields the Einstein field equations:
+
+$$\boxed{G_{\mu\nu} + \Lambda g_{\mu\nu}
+= \frac{8\pi G}{c^4}T_{\mu\nu}}$$
+
+where the stress-energy tensor arises from the matter
+Lagrangian:
+
+$$T_{\mu\nu} = -\frac{2}{\sqrt{-g}}
+\frac{\delta(\sqrt{-g}\,\mathcal{L}_{\text{matter}})}
+{\delta g^{\mu\nu}}$$
+
+*See Zee [5, §I.5 and Part IV] · MTW [3, §21.2, p. 491]
+· Carroll [8, §4.3, p. 164] · Wald [6, §4.3, p. 74].*
+"""
+
+# ╔═╡ abe9b692-7d82-4c49-b4cc-6f5b969e5c44
+# Bianchi_step1
+md"""
+**Step 1** — The second Bianchi identity:
+
+$$\nabla_{\lambda} R_{\mu\nu\rho\sigma}
++ \nabla_{\rho} R_{\mu\nu\sigma\lambda}
++ \nabla_{\sigma} R_{\mu\nu\lambda\rho} = 0$$
+"""
+
+# ╔═╡ 3376a7f8-63f4-46b7-9727-2f822ff636d3
+# Bianchi_step2
+md"""
+**Step 2** — Contract once with ``g^{\mu\rho}``:
+
+$$\nabla_{\lambda} R_{\nu\sigma}
+- \nabla_{\sigma} R_{\nu\lambda}
++ \nabla^{\mu} R_{\mu\nu\sigma\lambda} = 0$$
+"""
+
+# ╔═╡ 4bb8285f-ff52-427e-b0a5-522d199a619e
+# Bianchi_step3
+md"""
+**Step 3** — Contract again with ``g^{\nu\sigma}``:
+
+$$\nabla_{\lambda} R
+- \nabla^{\nu} R_{\nu\lambda}
+- \nabla^{\nu} R_{\nu\lambda} = 0$$
+
+Rearranging:
+
+$$\nabla_{\lambda} R = 2\nabla^{\nu} R_{\nu\lambda}$$
+"""
+
+# ╔═╡ 46386c8f-e971-4741-a987-9cad77a574df
+# Bianchi_result
+md"""
+**The contracted Bianchi identity:**
+
+$$\nabla^{\mu}\left(R_{\mu\nu} - \frac{1}{2}g_{\mu\nu}R\right)
+= \nabla^{\mu} G_{\mu\nu} = 0$$
+"""
 
 # ╔═╡ a6f494fd-9005-4e55-b69f-ef261d7e7ee9
 # Riemann_Tensor
 md"""
-## Riemann curvature tensor
+# Riemann curvature tensor
 
 In terms of the Christoffel symbols ``\Gamma^\lambda_{\;\mu\nu}``:
 
@@ -345,6 +421,94 @@ $$R_{\mu\nu} = R^\lambda_{\ \mu\lambda\nu}$$
 The Ricci scalar:
 
 $$R = g^{\mu\nu}R_{\mu\nu}$$
+"""
+
+# ╔═╡ 151b59bf-bcb0-4c2e-a5ff-f41ca82097df
+# MTW_Slots
+md"""
+## The Slot Machine: MTW's Language for Tensors
+
+MTW [3, §3.1, p. 53] introduce tensors as **machines with slots**.
+A tensor of rank ``\binom{p}{q}`` has ``p`` slots for 1-forms and
+``q`` slots for vectors. When all slots are filled the machine
+returns a real number.
+
+### The metric as a slot machine
+
+The metric ``g`` is a rank ``\binom{0}{2}`` tensor — a machine with
+**two vector slots**:
+
+$$g(\underline{\quad}, \underline{\quad})$$
+
+Fill both slots with vectors ``\mathbf{u}`` and ``\mathbf{v}``:
+
+$$g(\mathbf{u}, \mathbf{v}) = g_{\mu\nu}u^\mu v^\nu \in \mathbb{R}$$
+
+Fill one slot, leave one empty — the machine becomes a 1-form:
+
+$$g(\mathbf{u}, \underline{\quad}) = \tilde{u}$$
+
+This is precisely index lowering: ``u_\nu = g_{\mu\nu}u^\mu``.
+The filled slot has **reduced the rank by one**.
+
+### The Riemann tensor as a slot machine
+
+The Riemann tensor ``\mathbf{R}`` is a rank ``\binom{1}{3}`` machine
+with **one 1-form slot** and **three vector slots**:
+
+$$\mathbf{R}(\underline{\quad}; \underline{\quad}, \underline{\quad}, \underline{\quad})$$
+
+Fully filled — MTW [3, eq. 11.13, p. 273]:
+
+$$\mathbf{R}(\tilde{\sigma}; \mathbf{u}, \mathbf{v}, \mathbf{w})
+= R^\alpha_{\ \beta\gamma\delta}
+\,\sigma_\alpha\, u^\beta\, v^\gamma\, w^\delta \in \mathbb{R}$$
+
+**Partially filled** — fill the 1-form slot and one vector slot,
+leave two empty. The machine reduces to a rank ``\binom{0}{2}``
+tensor — the **Ricci tensor**:
+
+$$\mathbf{R}(\tilde{e}^\mu; \underline{\quad}, \mathbf{e}_\mu, \underline{\quad})
+= R_{\nu\lambda} = R^\mu_{\ \nu\mu\lambda}$$
+
+This is contraction in slot language: summing over a matched
+pair of slots — one 1-form, one vector — reduces the rank by
+``\binom{1}{1}`` and yields the Ricci tensor directly.
+
+**Fill all slots with basis vectors and read off components:**
+
+$$R^\rho_{\ \sigma\mu\nu} =
+\mathbf{R}(\tilde{e}^\rho;\, \mathbf{e}_\sigma,\, \mathbf{e}_\mu,\, \mathbf{e}_\nu)$$
+
+### Connection to Forms
+
+In the forms language the Riemann tensor is encoded in the
+curvature 2-form ``\Omega^a_{\ b}``. The slot interpretation
+of the 2-form is:
+
+$$\Omega^a_{\ b}(\underline{\quad}, \underline{\quad})$$
+
+a machine with **two vector slots**. Fill them with tangent
+vectors ``\mathbf{u}``, ``\mathbf{v}`` to a surface:
+
+$$\Omega^a_{\ b}(\mathbf{u}, \mathbf{v})
+= \frac{1}{2}R^a_{\ bcd}\, u^c\, v^d$$
+
+In **2 dimensions** there is only one independent 2-form
+``\Omega^1_{\ 2}`` and only one independent component of
+Riemann. The slot machine has only one way to fill its slots
+and returns the **Gaussian curvature** K:
+
+$$\Omega^1_{\ 2}(\mathbf{e}_1, \mathbf{e}_2) = K$$
+
+This is why 2-dimensional Riemannian geometry is completely
+characterized by a single scalar — the slot machine has run
+out of independent directions to point its slots.
+
+*See MTW [3, §3.1–3.4, pp. 53–60] for the full slot machine
+formalism. The Riemann slot analysis is in MTW [3, §11.3,
+pp. 273–275]. The 2-dimensional reduction via forms is in
+Frankel [2, §9.3] and Needham [4, Part III].*
 """
 
 # ╔═╡ 78ff3c5e-a318-4ac3-ac9a-5546f57be4cb
@@ -405,19 +569,6 @@ on the episode see his Nobel lecture, December 8, 1983, reproduced in*
 Reviews of Modern Physics*, vol. 56, pp. 137–147 (1984). Eddington's
 remark is quoted in A. V. Douglas,* The Life of Arthur Stanley Eddington
 *(Thomas Nelson, London, 1956, p. 194).*
-"""
-
-# ╔═╡ cda16457-f6ca-4107-a4e1-eab8ab9ad57a
-md"""
-The Chandrasekhar limit is $$M_{\text{Chandra}} \leq 1.4 \, M_{\odot}$$. It has not changed.
-"""
-
-# ╔═╡ f64b6c3f-c767-4955-8f35-9d4fff4e4c25
-md"``M_{\text{Chandra}} \leq 1.4 \, M_{\odot}``"
-
-# ╔═╡ e59ad89c-02ca-4f2c-96e9-392ccd380631
-md"""
-	$$\nabla^\mu G_{\mu\nu} = 0$$
 """
 
 # ╔═╡ 524be83d-67e4-434a-8b4b-ab9692d42589
@@ -651,41 +802,6 @@ $$\frac{\ddot{a}}{a} = -\frac{4\pi G}{3}\left(\rho + \frac{3p}{c^2}\right) + \fr
 where ``\rho`` is energy density, ``p`` is pressure, and ``\Lambda`` is the cosmological constant.
 """
 
-# ╔═╡ 4a0fd2d6-1a0d-4e7b-8a98-a500f48e6edd
-# References
-md"""
-## References
-
-[1] M. Nakahara, *Geometry, Topology and Physics*, 2nd ed.
-    Institute of Physics Publishing, Bristol, 2003.
-
-[2] T. Frankel, *The Geometry of Physics: An Introduction*, 3rd ed.
-    Cambridge University Press, Cambridge, 2012.
-
-[3] C. W. Misner, K. S. Thorne, and J. A. Wheeler,
-    *Gravitation*. W. H. Freeman, San Francisco, 1973.
-
-[4] T. Needham, *Visual Differential Geometry and Forms*.
-    Princeton University Press, Princeton, 2021.
-
-[5] A. Zee, *Einstein Gravity in a Nutshell*.
-    Princeton University Press, Princeton, 2013.
-
-[6] R. M. Wald, *General Relativity*.
-    University of Chicago Press, Chicago, 1984.
-
-[7] N. Straumann, *General Relativity*, 2nd ed.
-    Springer, Dordrecht, 2013.
-
-[8] S. M. Carroll, *Spacetime and Geometry*.
-    Addison-Wesley, San Francisco, 2004.
-
-[9] D. Tong, *General Relativity*, Lecture Notes,
-    University of Cambridge (2019).
-    Available at: [damtp.cam.ac.uk/user/tong/gr.html](http://www.damtp.cam.ac.uk/user/tong/gr.html)
-
-"""
-
 # ╔═╡ ab8b654e-8de0-48ba-90ef-3b79f6be1295
 md"""
 ## References
@@ -714,8 +830,13 @@ md"""
 [8] S. M. Carroll, *Spacetime and Geometry: An Introduction to General Relativity*.
     Addison-Wesley, San Francisco, 2004.
 
+[9] D. Tong, *General Relativity*, Lecture Notes,
+    University of Cambridge (2019).
+    Available at: [damtp.cam.ac.uk/user/tong/gr.html] (http://www.damtp.cam.ac.uk/user/tong/gr.html)
+
 [10] S. Chandrasekhar, *Truth and Beauty: Aesthetics and Motivations in Science*.
      University of Chicago Press, Chicago, 1987.
+
 """
 
 # ╔═╡ d5e45fde-ae5d-4bae-90ca-07d2257fd5f7
@@ -760,6 +881,211 @@ p. 202: [your note here]
 Does not use FORMS. Discussion of Robertson-Walker Metric p. 329
 """
 
+# ╔═╡ 7f2b0b53-f665-4fd1-b714-dfad63f1514e
+begin
+    function insight(title, content)
+        HTML("""
+        <div style="
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 1rem 0;
+            border: 2px solid #E07000;
+        ">
+        <div style="
+            background-color: #E07000;
+            padding: 0.5rem 1.25rem;
+        ">
+        <p style="
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            margin: 0;
+        ">∇ $title</p>
+        </div>
+        <div style="
+            background-color: #FFF8F0;
+            padding: 1rem 1.25rem;
+        ">
+        <p style="color: #4A4A4A; margin: 0; line-height: 1.6;">$content</p>
+        </div>
+        </div>
+        """)
+    end
+end
+
+# ╔═╡ ac7d564e-5e9f-44bc-ac77-9a5291539603
+insight(
+    "The Quest for Beauty in Science",
+    """
+    <em>All verifiable physics is alike; each unverifiable theory fails in its own way.</em>
+    <br><br>
+    Einstein's discovery of the general theory of relativity has been described by Hermann Weyl as a supreme example of the power of speculative thought, while Landau and Lifschitz consider the theory as probably the most beautiful of all existing physical theories. And Einstein himself wrote at the end of his first paper announcing his field equations: "Scarcely anyone who fully comprehends this theory can escape from its magic." 
+    <br><br>
+    <em>— S. Chandrasekhar, Truth and Beauty, University of Chicago Press, 1987,
+    p. 64 [10].</em>
+    """
+)
+
+# ╔═╡ 9c4350d5-1ee1-4cbb-adcd-4b6ffb642d49
+insight(
+    "Maxwell in One Line",
+    """
+    In the language of differential forms Maxwell's four equations
+    reduce to two:
+    <br><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;dF = 0 &nbsp;&nbsp; (Faraday + no magnetic monopoles)
+    <br><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;d⋆F = μ₀ ⋆J &nbsp;&nbsp; (Gauss + Ampère-Maxwell)
+    <br><br>
+    The first is a statement about the topology of the field.
+    The second is a statement about its sources.
+    In curved spacetime d becomes the covariant exterior derivative
+    and both equations hold without modification.
+    <br><br>
+    <em>MTW [3, §4.5, p. 112] · Carroll [8, §1.10, p. 56] · Zee [5, §I.5, p. 56].</em>
+    """
+)
+
+# ╔═╡ 539f6991-ebf9-40c5-be51-7cff2f676414
+# Principle of Least Action
+insight(
+    "Classical theories of physics encompass particles and fields",
+    """
+    Spacetime tells matter how to move; matter tells spacetime how to curve." — John Archibald Wheeler
+<br><br>
+	
+The approach used in the calculations is The Principle of Least Action using the Lagrangian resulting in the Euler-Lagrange equations. Then we determine the Geodesic equation.
+    <br><br>
+    <em>— MTW [ p. 5]<em>    """
+)
+
+
+# ╔═╡ a2622c25-8b40-4c55-8486-8108857eb95b
+insight(
+    "Semi-Riemannian Geometry: its meaning in GR",
+    """
+    <b>The essential distinction from Riemannian geometry is the signature of the metric.</b>
+    <br><br>
+    In Riemannian geometry the metric g is positive definite:
+    <br><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;g(v,v) > 0 &nbsp; for all v ≠ 0
+    <br><br>
+    All eigenvalues of g(μ,ν) are positive. Distances are always real and positive.
+    This is the geometry of ordinary curved spaces — spheres, tori, and so on.
+    <br><br>
+    In semi-Riemannian (pseudo-Riemannian) geometry the metric is indefinite:
+    <br><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;g(v,v) ∈ ℝ &nbsp; can be negative, zero, or positive
+    <br><br>
+    <b>Lorentzian geometry</b> is the specific semi-Riemannian case of spacetime,
+    with signature (-,+,+,+). The line element:
+    <br><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;ds² = -c²dt² + dx² + dy² + dz²
+    <br><br>
+    can be zero for a nonzero displacement. This has no analogue in Riemannian geometry.
+    The three causal classes of vectors:
+    <br><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;Timelike: &nbsp;&nbsp; g(v,v) < 0 &nbsp; massive particles, inside light cone<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;Null: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g(v,v) = 0 &nbsp; photons, on the light cone<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;Spacelike: &nbsp; g(v,v) > 0 &nbsp; outside the light cone
+    <br><br>
+    This causal structure — the light cone — has no counterpart in Riemannian
+    geometry and is the mathematical expression of the fact that nothing travels
+    faster than light.
+    <br><br>
+    <b>Key mathematical differences:</b>
+    <br><br>
+    Geodesics — in Riemannian geometry geodesics always minimise length. In
+    Lorentzian geometry timelike geodesics maximise proper time (the twin paradox
+    is a direct consequence), and null geodesics have zero length entirely.
+    <br><br>
+    Completeness — the Hopf-Rinow theorem guarantees that a complete Riemannian
+    manifold is geodesically complete. No such theorem exists in semi-Riemannian
+    geometry — this is precisely why the Penrose and Hawking singularity theorems
+    require separate proof and are far more subtle.
+    <br><br>
+    The norm — in Riemannian geometry ‖v‖ = √g(v,v) is always real. In Lorentzian
+    geometry one must write ‖v‖ = √|g(v,v)| and separately track the sign.
+    <br><br>
+    <em>See Wald [6, Ch. 2], MTW [3, Ch. 2], Nakahara [1, §6.1], Carroll [8, Ch. 1].</em>
+    """
+)
+
+# ╔═╡ 2511d9ce-4366-4c52-85db-4a91a0fca359
+
+# Bianchi_header
+insight(
+    "##Bianchi Identity → Divergence-free Einstein Tensor",
+    """
+    The second Bianchi identity for the Riemann tensor, when contracted
+    twice with the metric, forces the Einstein tensor to be automatically
+    divergence-free. This is not imposed — it is a pure consequence of
+    the geometry. The derivation proceeds in three steps.
+    """
+)
+
+
+
+# ╔═╡ 40384f4c-737c-4bfe-bf8c-79d9f1c402d5
+# Bianchi_footer
+insight(
+    "Physical Consequence",
+    """
+    The vanishing of ∇<sup>μ</sup> G<sub>μν</sub> is automatic
+    from the geometry — it is never imposed.
+    <br><br>
+    Since the Einstein equations require:
+    <br><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;G<sub>μν</sub> = 8πG T<sub>μν</sub>
+    <br><br>
+    local energy-momentum conservation:
+    <br><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;∇<sup>μ</sup> T<sub>μν</sub> = 0
+    <br><br>
+    follows without any additional assumptions. The geometry
+    enforces conservation — it is not a separate postulate.
+    <br><br>
+    <em>See MTW [3, p. 221] and Wald [6, p. 74].</em>
+    """
+)
+
+# ╔═╡ d8f156ad-c5c8-43df-b5f2-f2f3b047346a
+begin
+    function intuition(title, content)
+        HTML("""
+        <div style="
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 1rem 0;
+            border: 2px solid #2F4F4F;
+        ">
+        <div style="
+            background-color: #2F4F4F;
+            padding: 0.5rem 1.25rem;
+        ">
+        <p style="
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            margin: 0;
+        ">🫀 $title</p>
+        </div>
+        <div style="
+            background-color: #E8F4F4;
+            padding: 1rem 1.25rem;
+        ">
+        <p style="color: #4A4A4A; margin: 0; line-height: 1.6;">$content</p>
+        </div>
+        </div>
+        """)
+    end
+end
+
+# ╔═╡ ca3b8de0-76f1-4f66-b390-0f1e55fe8eb6
+intuition("Curvature is not felt locally",  "A freely falling observer 
+sees flat spacetime. It is only in the relative acceleration of neighbouring 
+geodesics that gravity reveals itself.")
+
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
@@ -767,9 +1093,11 @@ DifferentialEquations = "0c46a032-eb83-5123-abaf-570d42b7fbaa"
 Grassmann = "4df31cd9-4c27-5bea-88d0-e6a7146666d8"
 InteractiveUtils = "b77e0a4c-d291-57a0-90e8-8db25a27a240"
 LaTeXStrings = "b964fa9f-0449-5b57-a5c2-d3ea65f4040f"
+Latexify = "23fbe1c1-3f47-55db-b15f-69d7ec21a316"
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 Markdown = "d6f4376e-aef5-505a-96c1-9c027394607a"
 Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
+PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
 Symbolics = "0c5d862f-8b57-4792-8d23-62f2024744c7"
 TensorOperations = "6aa20fa7-93e2-5fca-9bc0-fbd0db3c71a2"
 Tullio = "bc48ee85-29a4-5162-ae0b-a64e1601d4bc"
@@ -778,7 +1106,9 @@ Tullio = "bc48ee85-29a4-5162-ae0b-a64e1601d4bc"
 DifferentialEquations = "~7.17.0"
 Grassmann = "~0.8.44"
 LaTeXStrings = "~1.4.0"
+Latexify = "~0.16.10"
 Plots = "~1.41.6"
+PlutoUI = "~0.7.80"
 Symbolics = "~7.18.1"
 TensorOperations = "~5.5.2"
 Tullio = "~0.3.9"
@@ -790,7 +1120,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.12.6"
 manifest_format = "2.0"
-project_hash = "387bdf5097f9b194e9a4981269c2f17ee55e2a64"
+project_hash = "d03bb0f8b94c1aea8aa1c8476b6f987d0ed06534"
 
 [[deps.ADTypes]]
 git-tree-sha1 = "f7304359109c768cf32dc5fa2d371565bb63b68a"
@@ -1805,6 +2135,24 @@ git-tree-sha1 = "68c173f4f449de5b438ee67ed0c9c748dc31a2ec"
 uuid = "34004b35-14d8-5ef3-9330-4cdb6864b03a"
 version = "0.3.28"
 
+[[deps.Hyperscript]]
+deps = ["Test"]
+git-tree-sha1 = "179267cfa5e712760cd43dcae385d7ea90cc25a4"
+uuid = "47d2ed2b-36de-50cf-bf87-49c2cf4b8b91"
+version = "0.0.5"
+
+[[deps.HypertextLiteral]]
+deps = ["Tricks"]
+git-tree-sha1 = "d1a86724f81bcd184a38fd284ce183ec067d71a0"
+uuid = "ac1192a8-f4b3-4bfe-ba22-af5b92cd3ab2"
+version = "1.0.0"
+
+[[deps.IOCapture]]
+deps = ["Logging", "Random"]
+git-tree-sha1 = "0ee181ec08df7d7c911901ea38baf16f755114dc"
+uuid = "b5f81e59-6552-4d32-b1f0-c071b021bf89"
+version = "1.0.0"
+
 [[deps.IfElse]]
 git-tree-sha1 = "debdd00ffef04665ccbb3e150747a77560e8fad1"
 uuid = "615f187c-cbe4-4ef1-ba3b-2fcf58d6d173"
@@ -2236,6 +2584,11 @@ deps = ["Dates", "Logging"]
 git-tree-sha1 = "f00544d95982ea270145636c181ceda21c4e2575"
 uuid = "e6f89c97-d47a-5376-807f-9c37f3926c36"
 version = "1.2.0"
+
+[[deps.MIMEs]]
+git-tree-sha1 = "c64d943587f7187e751162b3b84445bbbd79f691"
+uuid = "6c6e2e6c-3030-632d-7369-2d6c69616d65"
+version = "1.1.0"
 
 [[deps.MKL_jll]]
 deps = ["Artifacts", "IntelOpenMP_jll", "JLLWrappers", "LazyArtifacts", "Libdl", "oneTBB_jll"]
@@ -2808,6 +3161,12 @@ version = "1.41.6"
     IJulia = "7073ff75-c697-5162-941a-fcdaad2a7d2a"
     ImageInTerminal = "d8c32880-2388-543b-8c61-d9f865259254"
     Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
+
+[[deps.PlutoUI]]
+deps = ["AbstractPlutoDingetjes", "Base64", "ColorTypes", "Dates", "Downloads", "FixedPointNumbers", "Hyperscript", "HypertextLiteral", "IOCapture", "InteractiveUtils", "Logging", "MIMEs", "Markdown", "Random", "Reexport", "URIs", "UUIDs"]
+git-tree-sha1 = "fbc875044d82c113a9dee6fc14e16cf01fd48872"
+uuid = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
+version = "0.7.80"
 
 [[deps.PoissonRandom]]
 deps = ["LogExpFunctions", "Random"]
@@ -3646,6 +4005,11 @@ git-tree-sha1 = "0c45878dcfdcfa8480052b6ab162cdd138781742"
 uuid = "3bb67fe8-82b1-5028-8e26-92a6c54297fa"
 version = "0.11.3"
 
+[[deps.Tricks]]
+git-tree-sha1 = "311349fd1c93a31f783f977a71e8b062a57d4101"
+uuid = "410a4b4d-49e4-4fbc-ab6d-cb71b17b3775"
+version = "0.1.13"
+
 [[deps.TruncatedStacktraces]]
 deps = ["InteractiveUtils", "MacroTools", "Preferences"]
 git-tree-sha1 = "ea3e54c2bdde39062abf5a9758a23735558705e1"
@@ -4003,22 +4367,30 @@ version = "1.13.0+0"
 """
 
 # ╔═╡ Cell order:
-# ╠═c0646b26-7ef3-485f-bc3b-fe777e73e450
-# ╟─173acd4d-4894-48fc-bb69-48041eea3a49
-# ╠═9aa7dc70-c7c3-41ee-8f2a-97b6b56ddbbe
+# ╟─c0646b26-7ef3-485f-bc3b-fe777e73e450
+# ╟─675e5e43-6c7e-4525-b1f3-67d2bde3d130
+# ╠═3401142e-97ed-413a-818f-416811a133eb
+# ╟─9aa7dc70-c7c3-41ee-8f2a-97b6b56ddbbe
+# ╠═ac7d564e-5e9f-44bc-ac77-9a5291539603
+# ╟─56e010e2-ef5a-4b9c-9ecd-b977a2828179
+# ╟─a33ce232-26b7-49a5-a57c-0e4ba1c76054
+# ╟─9c4350d5-1ee1-4cbb-adcd-4b6ffb642d49
+# ╟─539f6991-ebf9-40c5-be51-7cff2f676414
+# ╠═d35876b2-8056-45d2-aec1-d1836b4ae6e3
+# ╠═bc3a47f5-a93a-4f63-b46e-beaaefb245db
+# ╠═4170c090-3f0c-4c83-aa89-3fef854a9283
+# ╟─a2622c25-8b40-4c55-8486-8108857eb95b
 # ╠═2511d9ce-4366-4c52-85db-4a91a0fca359
-# ╠═fe05c298-1cd9-4818-a676-5cfdf489bdd8
-# ╠═7bba4ccb-3fe6-458f-8103-d8d22bfbb93f
+# ╠═abe9b692-7d82-4c49-b4cc-6f5b969e5c44
+# ╠═3376a7f8-63f4-46b7-9727-2f822ff636d3
+# ╠═4bb8285f-ff52-427e-b0a5-522d199a619e
+# ╠═46386c8f-e971-4741-a987-9cad77a574df
+# ╠═40384f4c-737c-4bfe-bf8c-79d9f1c402d5
 # ╠═ca3b8de0-76f1-4f66-b390-0f1e55fe8eb6
-# ╠═9e5e3bad-bac6-48ab-a8f0-2fa9f71edb58
-# ╟─17c81a02-92f9-4ef8-9841-7a3e5a26ed92
-# ╠═37c41578-d2f6-481d-8531-e0102f6379ac
-# ╟─a6f494fd-9005-4e55-b69f-ef261d7e7ee9
+# ╠═a6f494fd-9005-4e55-b69f-ef261d7e7ee9
+# ╠═151b59bf-bcb0-4c2e-a5ff-f41ca82097df
 # ╠═78ff3c5e-a318-4ac3-ac9a-5546f57be4cb
 # ╠═ad59a7d0-af42-448b-9c48-9bc84bcb40e7
-# ╠═cda16457-f6ca-4107-a4e1-eab8ab9ad57a
-# ╠═f64b6c3f-c767-4955-8f35-9d4fff4e4c25
-# ╠═e59ad89c-02ca-4f2c-96e9-392ccd380631
 # ╠═524be83d-67e4-434a-8b4b-ab9692d42589
 # ╠═a9d842e3-484e-4a78-b6ee-f174c940dd67
 # ╠═9015f8b1-638f-4f59-a4b7-0c9e8bb1e67a
@@ -4029,8 +4401,9 @@ version = "1.13.0+0"
 # ╠═e5c79d1b-9429-4b19-8a82-174604cb5839
 # ╠═25846afe-1022-4f73-a2c3-929fde6bffde
 # ╠═ecea688e-6bb4-495c-938e-5900aecdcb88
-# ╠═4a0fd2d6-1a0d-4e7b-8a98-a500f48e6edd
 # ╠═ab8b654e-8de0-48ba-90ef-3b79f6be1295
 # ╠═d5e45fde-ae5d-4bae-90ca-07d2257fd5f7
+# ╟─7f2b0b53-f665-4fd1-b714-dfad63f1514e
+# ╟─d8f156ad-c5c8-43df-b5f2-f2f3b047346a
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
