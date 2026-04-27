@@ -6,18 +6,18 @@ using InteractiveUtils
 
 # ╔═╡ c0646b26-7ef3-485f-bc3b-fe777e73e450
 begin
-	### A Pluto.jl notebook ###
-	# v0.20.3
-	
-	using Markdown
-	using InteractiveUtils
-	using Symbolics
-	using Tullio
-	using LinearAlgebra
-	using TensorOperations
-	using Grassmann
-	using LaTeXStrings
-	using Latexify
+    ### A Pluto.jl notebook ###
+    # v0.20.3
+
+    using Markdown
+    using InteractiveUtils
+    using Symbolics
+    using Tullio
+    using LinearAlgebra
+    using TensorOperations
+    using Grassmann
+    using LaTeXStrings
+    using Latexify
 end
 
 # ╔═╡ 675e5e43-6c7e-4525-b1f3-67d2bde3d130
@@ -30,36 +30,36 @@ end
 # ╔═╡ 25846afe-1022-4f73-a2c3-929fde6bffde
 # Step 8 — Numerical scale factor
 begin
-	using DifferentialEquations
+    using DifferentialEquations
 
-	# Matter dominated universe, k=0, Λ=0
-	# ȧ² = H₀² Ω_m / a  →  rewrite as system
-	H0 = 67.4       # km/s/Mpc (Planck 2018)
-	Ω_m = 0.315
+    # Matter dominated universe, k=0, Λ=0
+    # ȧ² = H₀² Ω_m / a  →  rewrite as system
+    H0 = 67.4       # km/s/Mpc (Planck 2018)
+    Ω_m = 0.315
 
-	function friedmann!(du, u, p, t)
-		a = u[1]
-		da = u[2]
-		du[1] = da
-		du[2] = -H0^2 * Ω_m / (2 * a^2)
-	end
+    function friedmann!(du, u, p, t)
+        a = u[1]
+        da = u[2]
+        du[1] = da
+        du[2] = -H0^2 * Ω_m / (2 * a^2)
+    end
 
-	u0 = [0.01, H0 * sqrt(Ω_m / 0.01)]
-	tspan = (0.0, 14.0)   # Gyr
-	prob = ODEProblem(friedmann!, u0, tspan)
-	sol = solve(prob, Tsit5())
+    u0 = [0.01, H0 * sqrt(Ω_m / 0.01)]
+    tspan = (0.0, 14.0)   # Gyr
+    prob = ODEProblem(friedmann!, u0, tspan)
+    sol = solve(prob, Tsit5())
 end
 
 # ╔═╡ ecea688e-6bb4-495c-938e-5900aecdcb88
 # Step 9 — Plot scale factor
 begin
-	using Plots
-	plot(sol.t, sol[1,:],
-		xlabel = "Time (Gyr)",
-		ylabel = "Scale factor a(t)",
-		title  = "FLRW Scale Factor — Matter Dominated",
-		lw = 2,
-		legend = false)
+    using Plots
+    plot(sol.t, sol[1, :],
+        xlabel="Time (Gyr)",
+        ylabel="Scale factor a(t)",
+        title="FLRW Scale Factor — Matter Dominated",
+        lw=2,
+        legend=false)
 end
 
 # ╔═╡ 3401142e-97ed-413a-818f-416811a133eb
@@ -654,40 +654,40 @@ a^2 r^2 \sin^2\theta\right)$$
 
 # ╔═╡ 2dad2dec-bbd4-46dc-834b-fc957f93f9cf
 # Step 4 — Symbolic metric in Julia
-	begin
-	
-	    @variables t r θ φ a k
-	
-	    g = [
-	        -1          0              0          0;
-	         0    a^2/(1-k*r^2)        0          0;
-	         0          0           a^2*r^2       0;
-	         0          0              0     a^2*r^2*sin(θ)^2
-	    ]
-	end
+begin
+
+    @variables t r θ φ a k
+
+    g = [
+        -1 0 0 0;
+        0 a^2/(1-k*r^2) 0 0;
+        0 0 a^2*r^2 0;
+        0 0 0 a^2*r^2*sin(θ)^2
+    ]
+end
 
 # ╔═╡ 8ec4e1e3-9c84-449f-9389-ff584f80912d
 # Step 5 — Christoffel symbols
-	md"""
-	### Step 5 — Christoffel Symbols
-	
-	$$\Gamma^\mu_{\;\nu\lambda} = \frac{1}{2}g^{\mu\sigma}
-	\left(\partial_\nu g_{\sigma\lambda}
-	+ \partial_\lambda g_{\sigma\nu}
-	- \partial_\sigma g_{\nu\lambda}\right)$$
-	
-	The non-vanishing components for FLRW:
-	
-	$$\Gamma^0_{\;11} = \frac{a\dot{a}}{1-kr^2}, \qquad
-	\Gamma^0_{\;22} = a\dot{a}r^2, \qquad
-	\Gamma^0_{\;33} = a\dot{a}r^2\sin^2\theta$$
-	
-	$$\Gamma^1_{\;01} = \Gamma^2_{\;02} = \Gamma^3_{\;03} = \frac{\dot{a}}{a}$$
-	
-	$$\Gamma^1_{\;11} = \frac{kr}{1-kr^2}, \qquad
-	\Gamma^1_{\;22} = -r(1-kr^2), \qquad
-	\Gamma^2_{\;33} = -\sin\theta\cos\theta$$
-	"""
+md"""
+### Step 5 — Christoffel Symbols
+
+$$\Gamma^\mu_{\;\nu\lambda} = \frac{1}{2}g^{\mu\sigma}
+\left(\partial_\nu g_{\sigma\lambda}
++ \partial_\lambda g_{\sigma\nu}
+- \partial_\sigma g_{\nu\lambda}\right)$$
+
+The non-vanishing components for FLRW:
+
+$$\Gamma^0_{\;11} = \frac{a\dot{a}}{1-kr^2}, \qquad
+\Gamma^0_{\;22} = a\dot{a}r^2, \qquad
+\Gamma^0_{\;33} = a\dot{a}r^2\sin^2\theta$$
+
+$$\Gamma^1_{\;01} = \Gamma^2_{\;02} = \Gamma^3_{\;03} = \frac{\dot{a}}{a}$$
+
+$$\Gamma^1_{\;11} = \frac{kr}{1-kr^2}, \qquad
+\Gamma^1_{\;22} = -r(1-kr^2), \qquad
+\Gamma^2_{\;33} = -\sin\theta\cos\theta$$
+"""
 
 # ╔═╡ c93d96db-0a3e-48a7-ac0c-17f2af353eb0
 # Step 6 — Friedmann Equations via Differential Forms
@@ -1082,9 +1082,12 @@ begin
 end
 
 # ╔═╡ ca3b8de0-76f1-4f66-b390-0f1e55fe8eb6
-intuition("Curvature is not felt locally",  "A freely falling observer 
+intuition(
+    "Curvature is not felt locally",
+    "A freely falling observer 
 sees flat spacetime. It is only in the relative acceleration of neighbouring 
-geodesics that gravity reveals itself.")
+geodesics that gravity reveals itself."
+)
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
