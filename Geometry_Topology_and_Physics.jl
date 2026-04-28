@@ -1,6 +1,10 @@
 ### A Pluto.jl notebook ###
 # v0.20.24
 
+using Markdown
+using InteractiveUtils
+
+# ╔═╡ c0646b26-7ef3-485f-bc3b-fe777e73e450
 begin
     using Symbolics
     using Tullio
