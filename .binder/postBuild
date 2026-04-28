@@ -1,2 +1,12 @@
 #!/bin/bash
-julia --project=/home/jovyan/.binder -e 'using Pluto'
+julia --project=/home/jovyan/.binder -e '
+    using Pluto;
+    using HypertextLiteral;
+    using PlutoUI;
+    using Symbolics;
+    using Tullio;
+    using LaTeXStrings;
+    using Latexify;
+    using Grassmann;
+    using TensorOperations;
+'
