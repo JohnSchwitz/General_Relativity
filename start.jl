@@ -4,5 +4,6 @@ Pluto.run(
     port=8888,
     launch_browser=false,
     require_secret_for_access=false,
-    require_secret_for_open_links=false
+    require_secret_for_open_links=false,
+    notebook="/home/jovyan/Geometry_Topology_and_Physics.jl"
 )
