@@ -13,6 +13,8 @@ begin
     using Grassmann
     using LaTeXStrings
     using Latexify
+    using HypertextLiteral
+    using PlutoUI
 end
 # ╔═╡ c0646b26-7ef3-485f-bc3b-fe777e73e450
 
