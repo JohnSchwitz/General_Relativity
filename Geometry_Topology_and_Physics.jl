@@ -16,14 +16,6 @@ begin
     using HypertextLiteral
     using PlutoUI
 end
-# ╔═╡ c0646b26-7ef3-485f-bc3b-fe777e73e450
-
-# ╔═╡ 675e5e43-6c7e-4525-b1f3-67d2bde3d130
-# imports
-begin
-    using PlutoUI
-    TableOfContents(title="Contents", indent=true, depth=4, aside=true)
-end
 
 # ╔═╡ 25846afe-1022-4f73-a2c3-929fde6bffde
 # Step 8 — Numerical scale factor
@@ -58,6 +50,12 @@ begin
         title="FLRW Scale Factor — Matter Dominated",
         lw=2,
         legend=false)
+end
+
+# ╔═╡ 675e5e43-6c7e-4525-b1f3-67d2bde3d130
+# imports
+begin
+    TableOfContents(title="Contents", indent=true, depth=4, aside=true)
 end
 
 # ╔═╡ 3401142e-97ed-413a-818f-416811a133eb
@@ -1087,16 +1085,18 @@ sees flat spacetime. It is only in the relative acceleration of neighbouring
 geodesics that gravity reveals itself."
 )
 
+# ╔═╡ ddf996a6-4422-11f1-b851-a5657ccf1b3e
+
+
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
 DifferentialEquations = "0c46a032-eb83-5123-abaf-570d42b7fbaa"
 Grassmann = "4df31cd9-4c27-5bea-88d0-e6a7146666d8"
-InteractiveUtils = "b77e0a4c-d291-57a0-90e8-8db25a27a240"
+HypertextLiteral = "ac1192a8-f4b3-4bfe-ba22-af5b92cd3ab2"
 LaTeXStrings = "b964fa9f-0449-5b57-a5c2-d3ea65f4040f"
 Latexify = "23fbe1c1-3f47-55db-b15f-69d7ec21a316"
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
-Markdown = "d6f4376e-aef5-505a-96c1-9c027394607a"
 Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
 PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
 Symbolics = "0c5d862f-8b57-4792-8d23-62f2024744c7"
@@ -1106,12 +1106,13 @@ Tullio = "bc48ee85-29a4-5162-ae0b-a64e1601d4bc"
 [compat]
 DifferentialEquations = "~7.17.0"
 Grassmann = "~0.8.44"
+HypertextLiteral = "~1.0.0"
 LaTeXStrings = "~1.4.0"
 Latexify = "~0.16.10"
 Plots = "~1.41.6"
 PlutoUI = "~0.7.80"
-Symbolics = "~7.18.1"
-TensorOperations = "~5.5.2"
+Symbolics = "~7.20.0"
+TensorOperations = "~5.6.0"
 Tullio = "~0.3.9"
 """
 
@@ -1121,7 +1122,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.12.6"
 manifest_format = "2.0"
-project_hash = "d03bb0f8b94c1aea8aa1c8476b6f987d0ed06534"
+project_hash = "b970e0c9b867549eb20e764ad786e020fd082b42"
 
 [[deps.ADTypes]]
 git-tree-sha1 = "f7304359109c768cf32dc5fa2d371565bb63b68a"
@@ -2682,9 +2683,9 @@ version = "0.2.4"
 
 [[deps.MultivariatePolynomials]]
 deps = ["DataStructures", "LinearAlgebra", "MutableArithmetics", "StarAlgebras"]
-git-tree-sha1 = "b45f1ed8448ea20885cb4c5029c2a462fe2682bf"
+git-tree-sha1 = "4838893d9b035c2f6967c0d533350e1755b58a70"
 uuid = "102ac46a-7ee4-5c85-9060-abc95bfdeaa3"
-version = "0.5.17"
+version = "0.5.19"
 
     [deps.MultivariatePolynomials.extensions]
     MultivariatePolynomialsChainRulesCoreExt = "ChainRulesCore"
@@ -3781,38 +3782,35 @@ version = "0.5.8"
 
 [[deps.Strided]]
 deps = ["LinearAlgebra", "StridedViews", "TupleTools"]
-git-tree-sha1 = "17ac624e2ea145e6917095b8118edd7f8b721620"
+git-tree-sha1 = "b7476eb9926fd385063fdd8f880f8e831aac9490"
 uuid = "5e0ebb24-38b0-5f93-81fe-25c709ecae67"
-version = "2.3.6"
+version = "2.5.0"
 
     [deps.Strided.extensions]
-    StridedAMDGPUExt = "AMDGPU"
-    StridedCUDAExt = "CUDA"
     StridedGPUArraysExt = "GPUArrays"
-    StridedJLArraysExt = "JLArrays"
 
     [deps.Strided.weakdeps]
-    AMDGPU = "21141c5a-9bdb-4563-92ae-f87d6854732e"
-    CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
     GPUArrays = "0c68f7d7-f131-5f86-a1c3-88cf8149b2d7"
-    JLArrays = "27aeb0d3-9eb9-45fb-866b-73c2ecf80fcb"
 
 [[deps.StridedViews]]
-deps = ["LinearAlgebra", "PackageExtensionCompat"]
-git-tree-sha1 = "b1b42ff0249fbb02df163633adc612b943c6ac74"
+deps = ["LinearAlgebra"]
+git-tree-sha1 = "0481af1fe93b9141cb5341dfc9e524ae95421a41"
 uuid = "4db3bf67-4bd7-4b4e-b153-31dc3fb37143"
-version = "0.4.6"
+version = "0.5.1"
 
     [deps.StridedViews.extensions]
     StridedViewsAMDGPUExt = "AMDGPU"
-    StridedViewsCUDAExt = "CUDA"
+    StridedViewsAdaptExt = "Adapt"
+    StridedViewsCUDACoreExt = "CUDACore"
     StridedViewsJLArraysExt = "JLArrays"
     StridedViewsPtrArraysExt = "PtrArrays"
 
     [deps.StridedViews.weakdeps]
     AMDGPU = "21141c5a-9bdb-4563-92ae-f87d6854732e"
-    CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
+    Adapt = "79e6a3ab-5dfb-504d-930d-738a2a938a0e"
+    CUDACore = "bd0ed864-bdfe-4181-a5ed-ce625a5fdea2"
     JLArrays = "27aeb0d3-9eb9-45fb-866b-73c2ecf80fcb"
+    Metal = "dde4c033-4e86-420c-a63e-0dd931031962"
     PtrArrays = "43287f4e-b6f4-7ad1-bb20-aadabca52c3d"
 
 [[deps.StructUtils]]
@@ -3882,9 +3880,9 @@ version = "1.1.0"
 
 [[deps.SymbolicUtils]]
 deps = ["AbstractTrees", "ArrayInterface", "Combinatorics", "ConstructionBase", "DataStructures", "Dictionaries", "DocStringExtensions", "DynamicPolynomials", "EnumX", "ExproniconLite", "Graphs", "LinearAlgebra", "MacroTools", "Moshi", "MultivariatePolynomials", "MutableArithmetics", "NaNMath", "PrecompileTools", "ReadOnlyArrays", "Setfield", "SparseArrays", "SpecialFunctions", "StaticArraysCore", "SymbolicIndexingInterface", "TaskLocalValues", "TermInterface", "WeakCacheSets"]
-git-tree-sha1 = "552eaeac659f5802d45c4d936272a712ca13a969"
+git-tree-sha1 = "0da6c6f8e11789fb47cca0abe2549d6b87d5b8cb"
 uuid = "d1185830-fcd6-423d-90d6-eec64667417b"
-version = "4.24.1"
+version = "4.25.1"
 
     [deps.SymbolicUtils.extensions]
     SymbolicUtilsChainRulesCoreExt = "ChainRulesCore"
@@ -3900,9 +3898,9 @@ version = "4.24.1"
 
 [[deps.Symbolics]]
 deps = ["ADTypes", "AbstractPlutoDingetjes", "ArrayInterface", "Bijections", "CommonWorldInvalidations", "ConstructionBase", "DataStructures", "DiffRules", "DocStringExtensions", "DomainSets", "DynamicPolynomials", "Libdl", "LinearAlgebra", "LogExpFunctions", "MacroTools", "Markdown", "Moshi", "MultivariatePolynomials", "MutableArithmetics", "NaNMath", "PrecompileTools", "Preferences", "Primes", "RecipesBase", "Reexport", "RuntimeGeneratedFunctions", "SciMLPublic", "Setfield", "SparseArrays", "SpecialFunctions", "StaticArraysCore", "SymbolicIndexingInterface", "SymbolicLimits", "SymbolicUtils", "TermInterface"]
-git-tree-sha1 = "5c5db34512d5349b5e68d75cd707a3190fb26c81"
+git-tree-sha1 = "5ff7a0fb24aaecaae19d3ed2fe5431d5fc019fed"
 uuid = "0c5d862f-8b57-4792-8d23-62f2024744c7"
-version = "7.18.1"
+version = "7.20.0"
 
     [deps.Symbolics.extensions]
     SymbolicsD3TreesExt = "D3Trees"
@@ -3954,20 +3952,19 @@ version = "0.1.1"
 
 [[deps.TensorOperations]]
 deps = ["LRUCache", "LinearAlgebra", "PackageExtensionCompat", "PrecompileTools", "Preferences", "PtrArrays", "Strided", "StridedViews", "TupleTools", "VectorInterface"]
-git-tree-sha1 = "9e254318128d955ac429d8c6398ae3f82ba59439"
+git-tree-sha1 = "3b3b6c21c9a7c7ff66f0854f45301737b7f3d805"
 uuid = "6aa20fa7-93e2-5fca-9bc0-fbd0db3c71a2"
-version = "5.5.2"
+version = "5.6.0"
 
     [deps.TensorOperations.extensions]
     TensorOperationsBumperExt = "Bumper"
     TensorOperationsChainRulesCoreExt = "ChainRulesCore"
     TensorOperationsEnzymeExt = "Enzyme"
     TensorOperationsMooncakeExt = "Mooncake"
-    TensorOperationscuTENSORExt = ["cuTENSOR", "CUDA"]
+    TensorOperationscuTENSORExt = "cuTENSOR"
 
     [deps.TensorOperations.weakdeps]
     Bumper = "8ce10254-0962-460f-a3d8-1f77fea1446e"
-    CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
     ChainRulesCore = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
     Enzyme = "7da242da-08ed-463a-9acd-ee780be4f1d9"
     Mooncake = "da2b9cff-9c12-43a0-ae48-6db2b0edb7d6"
@@ -4370,41 +4367,42 @@ version = "1.13.0+0"
 # ╔═╡ Cell order:
 # ╟─c0646b26-7ef3-485f-bc3b-fe777e73e450
 # ╟─675e5e43-6c7e-4525-b1f3-67d2bde3d130
-# ╠═3401142e-97ed-413a-818f-416811a133eb
+# ╟─3401142e-97ed-413a-818f-416811a133eb
 # ╟─9aa7dc70-c7c3-41ee-8f2a-97b6b56ddbbe
-# ╠═ac7d564e-5e9f-44bc-ac77-9a5291539603
+# ╟─ac7d564e-5e9f-44bc-ac77-9a5291539603
 # ╟─56e010e2-ef5a-4b9c-9ecd-b977a2828179
 # ╟─a33ce232-26b7-49a5-a57c-0e4ba1c76054
 # ╟─9c4350d5-1ee1-4cbb-adcd-4b6ffb642d49
 # ╟─539f6991-ebf9-40c5-be51-7cff2f676414
-# ╠═d35876b2-8056-45d2-aec1-d1836b4ae6e3
-# ╠═bc3a47f5-a93a-4f63-b46e-beaaefb245db
-# ╠═4170c090-3f0c-4c83-aa89-3fef854a9283
+# ╟─d35876b2-8056-45d2-aec1-d1836b4ae6e3
+# ╟─bc3a47f5-a93a-4f63-b46e-beaaefb245db
+# ╟─4170c090-3f0c-4c83-aa89-3fef854a9283
 # ╟─a2622c25-8b40-4c55-8486-8108857eb95b
-# ╠═2511d9ce-4366-4c52-85db-4a91a0fca359
-# ╠═abe9b692-7d82-4c49-b4cc-6f5b969e5c44
-# ╠═3376a7f8-63f4-46b7-9727-2f822ff636d3
-# ╠═4bb8285f-ff52-427e-b0a5-522d199a619e
-# ╠═46386c8f-e971-4741-a987-9cad77a574df
-# ╠═40384f4c-737c-4bfe-bf8c-79d9f1c402d5
-# ╠═ca3b8de0-76f1-4f66-b390-0f1e55fe8eb6
-# ╠═a6f494fd-9005-4e55-b69f-ef261d7e7ee9
-# ╠═151b59bf-bcb0-4c2e-a5ff-f41ca82097df
-# ╠═78ff3c5e-a318-4ac3-ac9a-5546f57be4cb
-# ╠═ad59a7d0-af42-448b-9c48-9bc84bcb40e7
-# ╠═524be83d-67e4-434a-8b4b-ab9692d42589
-# ╠═a9d842e3-484e-4a78-b6ee-f174c940dd67
-# ╠═9015f8b1-638f-4f59-a4b7-0c9e8bb1e67a
-# ╠═8b01720a-e556-4b5a-bf16-1641b9e42d63
-# ╠═2dad2dec-bbd4-46dc-834b-fc957f93f9cf
-# ╠═8ec4e1e3-9c84-449f-9389-ff584f80912d
-# ╠═c93d96db-0a3e-48a7-ac0c-17f2af353eb0
-# ╠═e5c79d1b-9429-4b19-8a82-174604cb5839
-# ╠═25846afe-1022-4f73-a2c3-929fde6bffde
-# ╠═ecea688e-6bb4-495c-938e-5900aecdcb88
-# ╠═ab8b654e-8de0-48ba-90ef-3b79f6be1295
-# ╠═d5e45fde-ae5d-4bae-90ca-07d2257fd5f7
+# ╟─2511d9ce-4366-4c52-85db-4a91a0fca359
+# ╟─abe9b692-7d82-4c49-b4cc-6f5b969e5c44
+# ╟─3376a7f8-63f4-46b7-9727-2f822ff636d3
+# ╟─4bb8285f-ff52-427e-b0a5-522d199a619e
+# ╟─46386c8f-e971-4741-a987-9cad77a574df
+# ╟─40384f4c-737c-4bfe-bf8c-79d9f1c402d5
+# ╟─ca3b8de0-76f1-4f66-b390-0f1e55fe8eb6
+# ╟─a6f494fd-9005-4e55-b69f-ef261d7e7ee9
+# ╟─151b59bf-bcb0-4c2e-a5ff-f41ca82097df
+# ╟─78ff3c5e-a318-4ac3-ac9a-5546f57be4cb
+# ╟─ad59a7d0-af42-448b-9c48-9bc84bcb40e7
+# ╟─524be83d-67e4-434a-8b4b-ab9692d42589
+# ╟─a9d842e3-484e-4a78-b6ee-f174c940dd67
+# ╟─9015f8b1-638f-4f59-a4b7-0c9e8bb1e67a
+# ╟─8b01720a-e556-4b5a-bf16-1641b9e42d63
+# ╟─2dad2dec-bbd4-46dc-834b-fc957f93f9cf
+# ╟─8ec4e1e3-9c84-449f-9389-ff584f80912d
+# ╟─c93d96db-0a3e-48a7-ac0c-17f2af353eb0
+# ╟─e5c79d1b-9429-4b19-8a82-174604cb5839
+# ╟─25846afe-1022-4f73-a2c3-929fde6bffde
+# ╟─ecea688e-6bb4-495c-938e-5900aecdcb88
+# ╟─ab8b654e-8de0-48ba-90ef-3b79f6be1295
+# ╟─d5e45fde-ae5d-4bae-90ca-07d2257fd5f7
 # ╟─7f2b0b53-f665-4fd1-b714-dfad63f1514e
 # ╟─d8f156ad-c5c8-43df-b5f2-f2f3b047346a
+# ╠═ddf996a6-4422-11f1-b851-a5657ccf1b3e
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
